@@ -11,9 +11,6 @@
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
         <CommandBinding Command="Close" Executed="CloseExecuted"/>
     </Window.CommandBindings>
-    <Window.Resources>
-        <ResourceDictionary Source="Dictionary1.xaml"  />
-    </Window.Resources>
     <Grid>
         <!--Доработать проект текстового редактора из задания 9, заменив выбор шрифта и размера привязками данных.
         -->
@@ -45,16 +42,11 @@
                 </Button>
             </ToolBar>
             <ToolBar Style="{DynamicResource ToolBarStyle}">
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding Source={StaticResource Fonts}}" Style="{DynamicResource CBoxStyle}">
-                    
-                    <!--<TextBlock Resources="{StaticResource Fonts}"/>
-                    <TextBlock Text="Times New Roman"/>
-                    <TextBlock Text="Verdana"/>-->
+                <ComboBox x:Name="chkF" Margin="5" Padding="5" SelectedIndex="0" Width="200"  ItemsSource="{StaticResource Fonts}" SelectedItem="Arial" Style="{DynamicResource CBoxStyle}">
+                   
                 </ComboBox>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" SelectionChanged="ComboBox_SelectionChanged_1" ItemsSource="{Binding Source={StaticResource Sizes}}" Style="{DynamicResource CBoxStyle}">
-                    <!--<TextBlock Text="12"/>
-                    <TextBlock Text="14"/>
-                    <TextBlock Text="16"/>-->
+                <ComboBox x:Name="chkS" Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource Sizes}" SelectedItem="16" Style="{DynamicResource CBoxStyle}">
+                   
                 </ComboBox>
             </ToolBar>
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
@@ -81,6 +73,6 @@
                 <ComboBox x:Name="stylesBox" Margin="5" Padding="5" Width="100" Style="{DynamicResource CBoxStyle}"/>
             </ToolBar>
         </ToolBarTray>
-        <RichTextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial"  SpellCheck.IsEnabled="True" xml:lang="ru-ru" Style="{DynamicResource RTBStyle}"/>
+        <RichTextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="{Binding ElementName=chkS, Path=SelectedValue}" FontFamily="{Binding ElementName=chkF, Path=SelectedValue}"  SpellCheck.IsEnabled="True" xml:lang="ru-ru" Style="{DynamicResource RTBStyle}"/>
     </Grid>
 </Window>

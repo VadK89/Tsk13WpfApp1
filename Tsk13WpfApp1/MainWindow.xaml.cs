@@ -84,24 +84,24 @@ namespace Tsk13WpfApp1
             Application.Current.Shutdown();
         }
         //Из изначальной задачи без изменений
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string fontName = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily(fontName);
-            }
+        //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    string fontName = (sender as ComboBox).SelectedItem as string;
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontFamily = new FontFamily(fontName);
+        //    }
 
-        }
+        //}
 
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            string fontSize = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-            {
-                textBox.FontSize = Convert.ToDouble(fontSize);
-            }
-        }
+        //private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        //{
+        //    string fontSize = (sender as ComboBox).SelectedItem as string;
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontSize = Convert.ToDouble(fontSize);
+        //    }
+        //}
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             //RadioButton radioButton = RadioButton as sender;
@@ -118,5 +118,7 @@ namespace Tsk13WpfApp1
                 textBox.Foreground = Brushes.Red;
             }
         }
+       
+
     }
 }
